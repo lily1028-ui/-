@@ -2,13 +2,24 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>就活タイプ診断</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 
+<div class="container">
+
+
 <h1>📘 就活タイプ診断</h1>
+<p class="subtitle">あなたに合った働き方を見つけよう</p>
+
+
+<!-- 名前入力 -->
+<div class="name-box">
+<input type="text" id="username" placeholder="あなたの名前を入力してください">
+</div>
 
 
 <form id="quiz">
@@ -40,7 +51,9 @@
 <label><input type="radio" name="q4" value="A"> 多い</label>
 <label><input type="radio" name="q4" value="B"> 少ない</label>
 </div>
-  <div class="question">
+
+
+<div class="question">
 <h2>Q5：働く時間</h2>
 <label><input type="radio" name="q5" value="A"> 安定</label>
 <label><input type="radio" name="q5" value="B"> 不規則OK</label>
@@ -57,9 +70,14 @@
 <div id="detail"></div>
 
 
+<div class="share-box">
+<button id="shareBtn" onclick="shareResult()">📤 結果をシェア</button>
+</div>
+
+
+</div>
+
+
 <script src="script.js"></script>
 </body>
 </html>
-
-
-<div class="question">
