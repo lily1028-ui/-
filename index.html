@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>かんたんカウンターアプリ</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+margin-top: 100px;
+background-color: #f5f5f5;
+}
 
+
+h1 {
+font-size: 32px;
+}
+
+
+#count {
+font-size: 48px;
+margin: 20px 0;
+}
+
+
+button {
+font-size: 18px;
+padding: 10px 20px;
+margin: 5px;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+}
+
+
+.plus {
+background-color: #4CAF50;
+color: white;
+}
+
+
+.minus {
+background-color: #f44336;
+color: white;
+}
+
+
+.reset {
+background-color: #2196F3;
+color: white;
+}
+</style>
+</head>
+<body>
+
+
+<h1>かんたんカウンター</h1>
+
+
+<div id="count">0</div>
+
+
+<button class="plus" onclick="plus()">＋1</button>
+<button class="minus" onclick="minus()">－1</button>
+<button class="reset" onclick="reset()">リセット</button>
+
+
+<script>
+let count = 0;
+
+
+const countDisplay = document.getElementById("count");
+
+
+function plus() {
+count++;
+update();
+}
+
+
+function minus() {
+count--;
+update();
+}
+
+
+function reset() {
+count = 0;
+update();
+}
+  
+
+function update() {
+countDisplay.textContent = count;
+}
+</script>
+
+
+</body>
+</html>
