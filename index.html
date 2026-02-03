@@ -2,99 +2,44 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>かんたんカウンターアプリ</title>
-<style>
-body {
-font-family: Arial, sans-serif;
-text-align: center;
-margin-top: 100px;
-background-color: #f5f5f5;
-}
-
-
-h1 {
-font-size: 32px;
-}
-
-
-#count {
-font-size: 48px;
-margin: 20px 0;
-}
-
-
-button {
-font-size: 18px;
-padding: 10px 20px;
-margin: 5px;
-border: none;
-border-radius: 10px;
-cursor: pointer;
-}
-
-
-.plus {
-background-color: #4CAF50;
-color: white;
-}
-
-
-.minus {
-background-color: #f44336;
-color: white;
-}
-
-
-.reset {
-background-color: #2196F3;
-color: white;
-}
-</style>
+<title>就活タイプ診断</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 
-<h1>かんたんカウンター</h1>
+<h1>📘 就活タイプ診断</h1>
 
 
-<div id="count">0</div>
+<form id="quiz">
 
 
-<button class="plus" onclick="plus()">＋1</button>
-<button class="minus" onclick="minus()">－1</button>
-<button class="reset" onclick="reset()">リセット</button>
+<div class="question">
+<h2>Q1：働く場所</h2>
+<label><input type="radio" name="q1" value="A"> 地方</label>
+<label><input type="radio" name="q1" value="B"> 都会</label>
+</div>
 
 
-<script>
-let count = 0;
+<div class="question">
+<h2>Q2：働き方</h2>
+<label><input type="radio" name="q2" value="A"> 体を動かす</label>
+<label><input type="radio" name="q2" value="B"> デスクワーク</label>
+</div>
 
 
-const countDisplay = document.getElementById("count");
+<div class="question">
+<h2>Q3：重視ポイント</h2>
+<label><input type="radio" name="q3" value="A"> 給料</label>
+<label><input type="radio" name="q3" value="B"> やりがい</label>
+</div>
 
 
-function plus() {
-count++;
-update();
-}
+<div class="question">
+<h2>Q4：人との関わり</h2>
+<label><input type="radio" name="q4" value="A"> 多い</label>
+<label><input type="radio" name="q4" value="B"> 少ない</label>
+</div>
 
 
-function minus() {
-count--;
-update();
-}
-
-
-function reset() {
-count = 0;
-update();
-}
-  
-
-function update() {
-countDisplay.textContent = count;
-}
-</script>
-
-
-</body>
-</html>
+<div class="question">
