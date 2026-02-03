@@ -1,11 +1,20 @@
 function diagnose() {
 
 
+const name = document.getElementById("username").value.trim();
+
+
+if (name === "") {
+alert("名前を入力してください");
+return;
+}
+
+
 const answers = [];
 
 
 for (let i = 1; i <= 5; i++) {
-const q = document.querySelector(`input[name="q${i}"]:checked`);
+const q = document.querySelector(`input[name=\"q${i}\"]:checked`);
 
 
 if (!q) {
@@ -23,31 +32,64 @@ const bCount = answers.filter(a => a === "B").length;
 
 
 let type = "";
-let detail = "";
+let jobs = "";
 
 
 if (aCount >= 4) {
 type = "🌱 安定・地域密着タイプ";
-detail = "公務員・地元企業・金融系がおすすめ";
+jobs = "公務員・地元企業・金融・インフラ";
 }
 else if (bCount >= 4) {
 type = "🚀 チャレンジ型タイプ";
-detail = "IT・ベンチャー・企画職向き";
-}
+jobs = "IT・ベンチャー・広告・企画";
+  }
 else if (answers[1] === "A" && answers[3] === "A") {
 type = "🤝 現場コミュニケーション型";
-detail = "営業・観光・福祉・教育向き";
+jobs = "営業・観光・販売・福祉・教育";
 }
 else if (answers[1] === "B" && answers[3] === "B") {
 type = "💻 デスク集中型";
-detail = "事務・IT・研究職向き";
+jobs = "事務・IT・研究・経理";
 }
 else {
 type = "⚖️ バランス型";
-detail = "幅広く挑戦できるタイプ";
+jobs = "公務員・一般企業・サービス業・IT";
 }
 
 
-document.getElementById("result").textContent = "あなたのタイプ：" + type;
-document.getElementById("detail").textContent = detail;
+const resultText = `${name}さんのタイプ：${type}`;
+const detailText = `おすすめ職種：${jobs}`;
+
+
+document.getElementById("result").textContent = resultText;
+document.getElementById("detail").textContent = detailText;
+
+
+// シェア用に保存
+window.shareMessage = `${resultText}
+${detailText}
+#就活診断`;
+}
+
+
+// SNSシェア機能
+function shareResult() {
+
+
+if (!window.shareMessage) {
+alert("先に診断してください");
+return;
+}
+
+
+if (navigator.share) {
+  navigator.share({
+text: window.shareMessage
+});
+}
+else {
+// 非対応ブラウザ用（コピー）
+navigator.clipboard.writeText(window.shareMessage);
+alert("結果をコピーしました！SNSに貼り付けて使ってください✨");
+}
 }
